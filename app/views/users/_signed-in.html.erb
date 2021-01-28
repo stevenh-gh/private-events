@@ -1,0 +1,2 @@
+<% current_user = User.find session[:current_user_id] %>
+<p><small>Signed in as: <%= current_user.name %> (id: <%= current_user.id %>)</small></p>
