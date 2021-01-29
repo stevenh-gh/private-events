@@ -1,5 +1,19 @@
 <h1>User info</h1>
-<p>User name: <%= @user.name %></p>
-<p>Account creation date: <%= @user.created_at %>
+<div>
+  <p>User name: <%= @user.name %></p>
+  <p>Account creation date: <%= @user.created_at %>
+
+  <p>Events hosted:</p>
+   <% @user.hosted_events.each do |e| %>
+      <div>
+        Description: <%= e.description %><br>
+        Location:    <%= e.location %><br>
+        Date:        <%= e.date %>
+      </div>
+   <% end %>
+
+</div>
+
+
 
 <%= render 'signed-in' %>
