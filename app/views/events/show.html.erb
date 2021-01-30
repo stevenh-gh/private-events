@@ -1,0 +1,9 @@
+<h1>Event details</h1>
+<% e = @event %>
+  <div>
+    Description: <%= e.description %><br>
+    Location:    <%= e.location %><br>
+    Date:        <%= e.date %><br>
+    Host:        <%= e.host.name %>
+    <hr>
+  </div>

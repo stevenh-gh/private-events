@@ -1,0 +1,12 @@
+<h1>List of Events</h1>
+<% @events.each do |e| %>
+  <div>
+    Description: <%= e.description %><br>
+    Location:    <%= e.location %><br>
+    Date:        <%= e.date %><br>
+    Host:        <%= e.host.name %>
+    <hr>
+  </div>
+<% end %>
+
+<%= render 'users/signed-in' %>
