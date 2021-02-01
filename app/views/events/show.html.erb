@@ -1,9 +1,23 @@
 <h1>Event details</h1>
 <% e = @event %>
-  <div>
-    Description: <%= e.description %><br>
-    Location:    <%= e.location %><br>
-    Date:        <%= e.date %><br>
-    Host:        <%= e.host.name %>
-    <hr>
-  </div>
+<div>
+        Description: <%= e.description %><br>
+        Location: <%= e.location %><br>
+        Date: <%= e.date %><br>
+        Host: <%= e.host.name %>
+        <hr>
+</div>
+
+<strong>Attendees</strong>
+<% e.attendees.each do |a| %>
+<div>
+        Name: <%= a.name %><br>
+        ID: <%= a.id %><br>
+        <%= link_to "User info", user_path(a) %>
+        <hr>
+</div>
+
+<% end %>
+
+<%= render 'layouts/links' %><br>
+<%= render 'users/signed-in' %>

@@ -1,19 +1,43 @@
 <h1>User info</h1>
 <div>
-  <p>User name: <%= @user.name %></p>
-  <p>Account creation date: <%= @user.created_at %>
+        <p>User name: <%= @user.name %></p>
+        <p>Account creation date: <%= @user.created_at %>
 
-  <p>Events hosted:</p>
-   <% @user.hosted_events.each do |e| %>
-      <div>
-        Description: <%= e.description %><br>
-        Location:    <%= e.location %><br>
-        Date:        <%= e.date %>
-      </div>
-   <% end %>
+        <p>Events hosted:</p>
+        <% @user.hosted_events.each do |e| %>
+        <div>
+                Description: <%= e.description %><br>
+                Location: <%= e.location %><br>
+                Date: <%= e.date %><br>
+                <%= link_to 'More info', event_path(e) %>
+                <hr>
+        </div>
+        <% end %>
 
 </div>
 
+<p>Events attending:</p>
 
+<p>Previously attended:</p>
+<% @user.attended_events.past.each do |e| %>
+<div>
+        Description: <%= e.description %><br>
+        Location: <%= e.location %><br>
+        Date: <%= e.date %><br>
+        <%= link_to "More info", event_path(e) %><br>
+        <hr>
+</div>
+<% end %>
 
+<p>Upcoming events:</p>
+<% @user.attended_events.upcoming.each do |e| %>
+<div>
+        Description: <%= e.description %><br>
+        Location: <%= e.location %><br>
+        Date: <%= e.date %><br>
+        <%= link_to "More info", event_path(e) %><br>
+        <hr>
+</div>
+<% end %>
+<%= render 'layouts/links' %><br>
 <%= render 'signed-in' %>

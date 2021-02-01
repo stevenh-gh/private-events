@@ -4,9 +4,11 @@
     Description: <%= e.description %><br>
     Location:    <%= e.location %><br>
     Date:        <%= e.date %><br>
-    Host:        <%= e.host.name %>
+    Host:        <%= e.host.name %><br>
+    <%= link_to "More info", event_path(e) %>
     <hr>
   </div>
 <% end %>
 
+<%= render 'layouts/links' %><br>
 <%= render 'users/signed-in' %>
