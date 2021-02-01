@@ -1,5 +1,18 @@
 <h1>List of Events</h1>
-<% @events.each do |e| %>
+<p>Past events:</p>
+<% @events.past.each do |e| %>
+  <div>
+    Description: <%= e.description %><br>
+    Location:    <%= e.location %><br>
+    Date:        <%= e.date %><br>
+    Host:        <%= e.host.name %><br>
+    <%= link_to "More info", event_path(e) %>
+    <hr>
+  </div>
+<% end %>
+
+<p>Future events:</p>
+<% @events.upcoming.each do |e| %>
   <div>
     Description: <%= e.description %><br>
     Location:    <%= e.location %><br>
